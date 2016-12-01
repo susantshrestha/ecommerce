@@ -1,0 +1,32 @@
+﻿@using Ecommerce.Models
+@model IEnumerable<Ecommerce.Models.Product>
+
+@{
+    ViewBag.Title = "User";
+}
+
+
+<table class="table">
+   
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.ProductId
+        </td>
+        <td>
+            <img style="width: 15%"src="/images/@item.ImageUrl" alt="@item.Description" />
+        </td>
+        <td>
+            @Html.ActionLink(item.Description, "Details", new { id = item.ProductId })
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.ActionLink("Add To Basket", "AddToBasket", new { id=item.ProductId })
+        </td>
+    </tr>
+}
+
+</table>
