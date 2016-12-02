@@ -7,6 +7,7 @@ namespace Ecommerce.Contracts.Repositories
     public interface IRepositoryBase
     {
         void Delete(Product entity);
+    
         IEnumerable<Product> GetAll();
         Product GetById(object id);
         void Insert(Product entity);

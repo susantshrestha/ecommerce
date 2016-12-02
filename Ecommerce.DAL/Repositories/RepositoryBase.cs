@@ -36,10 +36,10 @@ namespace Ecommerce.DAL.Repositories
             context.Products.Add(entity);
         }
 
-        public virtual void Delete(Product entity)
+        public virtual void Delete(Product product)
         {
              
-            Product book = context.Products.Find(entity);
+            Product book = context.Products.Find(product);
             context.Products.Remove(book);
        
         }
