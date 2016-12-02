@@ -38,13 +38,10 @@ namespace Ecommerce.DAL.Repositories
 
         public virtual void Delete(Product entity)
         {
-            if (context.Entry(entity).State==EntityState.Detached)
-            {
-                context.Products.Attach(entity);
-            }
-//            Product book = context.Products.Find(entity);
-//            context.Products.Remove(book);
-            context.Products.Remove(entity);
+             
+            Product book = context.Products.Find(entity);
+            context.Products.Remove(book);
+       
         }
 
         public virtual void Update(Product entity)

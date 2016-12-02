@@ -79,17 +79,11 @@ namespace eCommerce.WebUI.Controllers
         [HttpPost]
         public ActionResult DeleteProduct(Product product)
         {
-//            try
-//            {
-            // TODO: Add delete logic here
             products.Delete(product);
             products.Save();
             return RedirectToAction("ProductList");
-//            }
-//            catch
-//            {
-//                return View();
-//            }
+            
+            
         }
 
     }
