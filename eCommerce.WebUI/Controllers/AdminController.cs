@@ -18,12 +18,14 @@ namespace eCommerce.WebUI.Controllers
             this.customers = customers;
             this.products = products;
         }
+
         // GET: Admin
         public ActionResult Index()
         {
             return View();
         }
-           // GET: Home/Details/5
+
+        // GET: Home/Details/5
         public ActionResult Details(int id)
         {
             var productlist = products.GetById(id);
@@ -38,7 +40,7 @@ namespace eCommerce.WebUI.Controllers
 
         public ActionResult CreateProduct()
         {
-            var model=new Product();
+            var model = new Product();
 
             return View(model);
         }
@@ -49,7 +51,7 @@ namespace eCommerce.WebUI.Controllers
             products.Insert(product);
             products.Save();
 
-             return RedirectToAction("ProductList");
+            return RedirectToAction("ProductList");
         }
 
         public ActionResult EditProduct(int id)
@@ -77,16 +79,18 @@ namespace eCommerce.WebUI.Controllers
         [HttpPost]
         public ActionResult DeleteProduct(Product product)
         {
-            try
-            {
-                // TODO: Add delete logic here
-                products.Delete(product);
-                products.Save();
-                return RedirectToAction("ProductList");
-            }
-            catch
-            {
-                return View();
-            }
+//            try
+//            {
+            // TODO: Add delete logic here
+            products.Delete(product);
+            products.Save();
+            return RedirectToAction("ProductList");
+//            }
+//            catch
+//            {
+//                return View();
+//            }
         }
+
+    }
 }
