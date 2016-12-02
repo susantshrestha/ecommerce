@@ -23,6 +23,12 @@ namespace eCommerce.WebUI.Controllers
         {
             return View();
         }
+           // GET: Home/Details/5
+        public ActionResult Details(int id)
+        {
+            var productlist = products.GetById(id);
+            return View(productlist);
+        }
 
         public ActionResult ProductList()
         {
@@ -59,5 +65,28 @@ namespace eCommerce.WebUI.Controllers
             products.Save();
             return RedirectToAction("ProductList");
         }
-    }
+
+        // GET: Home/Delete/5
+        public ActionResult DeleteProduct(int id)
+        {
+            var model = products.GetById(id);
+            return View(model);
+        }
+
+        // POST: Home/Delete/5
+        [HttpPost]
+        public ActionResult DeleteProduct(Product product)
+        {
+            try
+            {
+                // TODO: Add delete logic here
+                products.Delete(product);
+                products.Save();
+                return RedirectToAction("ProductList");
+            }
+            catch
+            {
+                return View();
+            }
+        }
 }
